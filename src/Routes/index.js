@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import DetailsView from '../Pages/DetailsView';
 import PeopleTable from '../Pages/PeopleTable';
 import { ROUTES } from '../constants/routes';
 
 const Routes = memo(() => (
-  <Router>
+  <Router basename="/">
     <Route exact path={ROUTES.DETAILS_PAGE}>
       <DetailsView />
     </Route>

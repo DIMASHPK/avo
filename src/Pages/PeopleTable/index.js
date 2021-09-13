@@ -51,34 +51,32 @@ const PeopleTable = memo(() => {
 
   return (
     <Layout classes={{ paper: styles.paper, container: styles.container }}>
-      <div className={styles.tableWrapper}>
-        <TableContainer className={styles.tableContainer}>
-          <Table stickyHeader>
-            <TableHead>
-              <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Gender</TableCell>
-                <TableCell>Date of birthday</TableCell>
-                <TableCell>Mass</TableCell>
-                <TableCell>Height</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {people?.map(renderRow)}
-              {renderError()}
-            </TableBody>
-          </Table>
-          <Preloader isLoading={isLoading} />
-        </TableContainer>
-        <TablePagination
-          count={count || 0}
-          rowsPerPageOptions={[]}
-          rowsPerPage={ROW_PER_PAGE}
-          page={page}
-          component="div"
-          onPageChange={handleChangePage}
-        />
-      </div>
+      <TableContainer className={styles.tableContainer}>
+        <Table stickyHeader>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Gender</TableCell>
+              <TableCell>Date of birthday</TableCell>
+              <TableCell>Mass</TableCell>
+              <TableCell>Height</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {people?.map(renderRow)}
+            {renderError()}
+          </TableBody>
+        </Table>
+        <Preloader isLoading={isLoading} />
+      </TableContainer>
+      <TablePagination
+        count={count || 0}
+        rowsPerPageOptions={[]}
+        rowsPerPage={ROW_PER_PAGE}
+        page={page}
+        component="div"
+        onPageChange={handleChangePage}
+      />
       <SideBar />
     </Layout>
   );
